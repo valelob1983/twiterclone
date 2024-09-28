@@ -74,3 +74,5 @@ gem "faker", "~> 3.4"
 gem "pg_search", "~> 2.3"
 
 gem "pagy", "~> 9.0"
+
+gem "bootstrap", "~> 5.3"
