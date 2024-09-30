@@ -1,9 +1,11 @@
-<h1>New tweet</h1>
+<div class="container my-4">
+  <h1 class="mb-4">Nuevo Tweet</h1>
 
-<%= render "form", tweet: @tweet %>
+  <div class="card p-4">
+    <%= render "form", tweet: @tweet %>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to tweets", tweets_path %>
+  <div class="mt-3">
+    <%= link_to "Volver a tweets", tweets_path, class: "btn btn-secondary" %>
+  </div>
 </div>

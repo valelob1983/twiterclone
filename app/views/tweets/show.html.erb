@@ -1,10 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success">
+    <%= notice %>
+  </div>
+<% end %>
 
-<%= render @tweet %>
+<div class="card mb-4">
+  <div class="card-body">
+    <%= render @tweet %>
+  </div>
+</div>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+<div class="d-flex justify-content-between">
+  <div>
+    <%= link_to "Editar tweet", edit_tweet_path(@tweet), class: "btn btn-primary" %>
+    <%= link_to "Volver a tweets", tweets_path, class: "btn btn-secondary" %>
+  </div>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
+  <%= button_to "Eliminar tweet", @tweet, method: :delete, class: "btn btn-danger", data: { confirm: "Estas Seguro?" } %>
+</div>
+
+
+<div class="my-4">
+    <%= link_to "Volver al listado de Tweets", tweets_path, class: "btn btn-secondary" %>
+  </div>
 </div>

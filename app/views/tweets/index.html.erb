@@ -1,20 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1 class="my-4">Tweets</h1>
 
-<h1>Tweets</h1>
+  <div id="tweets" class="list-group">
+    <% @tweets.each do |tweet| %>
+      <div class="list-group-item">
+        <%= render tweet %>
+        <p class="mt-2">
+          <%= link_to "Mostar tweet", tweet, class: "btn btn-primary btn-sm" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
-<div id="tweets">
-  <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
+  <div class="my-4">
+    <%= link_to "Nuevo tweets", new_tweet_path, class: "btn btn-success" %>
+  </div>
+
+  <%= form_with url: tweets_path, method: :get, class: "form-inline my-4" do |form| %>
+    <div class="form-group mx-sm-3 my-4">
+      <%= form.text_field :query_text, placeholder: t('Query text'), value: params[:query_text], class: "form-control" %>
+    </div>
+    <%= form.submit 'Buscar', class: "btn btn-outline-primary" %>
   <% end %>
+
+  <div class="pagination justify-content-center">
+    <%= raw pagy_nav(@pagy) %>
+  </div>
 </div>
-
-<%= link_to "New tweet", new_tweet_path %>
-
-<%= form_with url: tweets_path, method: :get do |form|%>
-  <%= form.text_field :query_text, placeholder: t('Query text'), value: params[:query_text]%>
-<%end%>
-
-<%=raw pagy_nav(@pagy)%>
