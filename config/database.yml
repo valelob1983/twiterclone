@@ -48,5 +48,6 @@ test:
 production:
   <<: *default
   database: twitterclone_production
-  username: twitterclone
+  sername: twitterclone
   password: <%= ENV["TWITTERCLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
