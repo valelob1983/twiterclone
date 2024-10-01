@@ -111,6 +111,10 @@ GEM
     execjs (2.9.1)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
+    ffi (1.17.0-x64-mingw-ucrt)
+    ffi (1.17.0-x86_64-linux-gnu)
+    font-awesome-sass (6.5.2)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -213,6 +217,8 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.7)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.25.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -263,6 +269,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   faker (~> 3.4)
+  font-awesome-sass (~> 6.5)
   importmap-rails
   jbuilder
   pagy (~> 9.0)

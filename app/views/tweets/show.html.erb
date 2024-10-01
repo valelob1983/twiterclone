@@ -1,21 +1,42 @@
-<% if notice %>
-  <div class="alert alert-success">
-    <%= notice %>
-  </div>
-<% end %>
-
 <div class="card mb-4">
   <div class="card-body">
     <%= render @tweet %>
   </div>
 </div>
 
-<div class="d-flex justify-content-between">
+<!-- Contenedor para la barra de búsqueda y los botones -->
+<div class="d-flex justify-content-between mb-4">
+  <!-- Barra de búsqueda -->
   <div>
-    <%= link_to "Editar tweet", edit_tweet_path(@tweet), class: "btn btn-primary" %>
-    <%= link_to "Volver a tweets", tweets_path, class: "btn btn-secondary" %>
-  </div>
+  <%= form_with url: tweets_path, method: :get, class: "form-inline d-inline-flex" do |form| %>
+    <div class="form-group mx-sm-3">
+      <%= form.text_field :query_text, placeholder: 'Búsqueda de otro tweet', value: params[:query_text], class: "form-control" %>
+    </div>
+    <%= button_tag(type: 'submit', class: "btn btn-outline-primary") do %>
+      <i class="fa-solid fa-magnifying-glass"></i> <!-- Ícono de lupa -->
+      Buscar
+    <% end %>
+  <% end %>
+</div>
 
-  <%= button_to "Eliminar tweet", @tweet, method: :delete, class: "btn btn-danger", data: { confirm: "Estas Seguro?" } %>
+
+
+  <!-- Botones de acción -->
+  <div class="d-inline-flex">
+    <%= link_to edit_tweet_path(@tweet), class: "btn btn-primary d-inline-flex align-items-center mr-2" do %>
+      <i class="fas fa-edit mr-2"></i> 
+      Editar
+    <% end %>
+
+    <%= link_to tweets_path, class: "btn btn-secondary d-inline-flex align-items-center mr-2" do %>
+      <i class="fas fa-arrow-left mr-2"></i> 
+      Volver
+    <% end %>
+
+    <%= button_to @tweet, method: :delete, class: "btn btn-danger d-inline-flex align-items-center", data: { confirm: "¿Estás seguro?" } do %>
+      <i class="fas fa-trash-alt mr-2"></i> 
+      Eliminar
+    <% end %>
+  </div>
 </div>
 
